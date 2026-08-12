@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-label="Screenshots of impugned carousel">
+  <defs>
+    <pattern id="rule" width="900" height="34" patternUnits="userSpaceOnUse">
+      <line x1="70" y1="33" x2="830" y2="33" stroke="#e6ddd1" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1200" fill="#faf7f3"/>
+  <rect x="40" y="40" width="820" height="1120" rx="18" fill="#ffffff" stroke="#e6ddd1"/>
+  <rect x="70" y="300" width="760" height="800" fill="url(#rule)"/>
+  <text x="70" y="130" font-family="ui-monospace,Menlo,monospace" font-size="22" letter-spacing="6" fill="#b45309">ANNEXURE A</text>
+  <text x="70" y="196" font-family="-apple-system,Segoe UI,sans-serif" font-size="40" font-weight="700" fill="#1c1917">Screenshots of impugned carousel</text>
+  <text x="70" y="240" font-family="-apple-system,Segoe UI,sans-serif" font-size="24" fill="#7b716a">3 slides · captured 08 Aug 2026</text>
+  <rect x="70" y="266" width="140" height="4" rx="2" fill="#ea6a12"/>
+  <g transform="translate(640,1090)">
+    <rect x="0" y="-34" width="190" height="46" rx="23" fill="#fdf1e6" stroke="#ea6a12"/>
+    <text x="95" y="-4" text-anchor="middle" font-family="-apple-system,sans-serif" font-size="18" fill="#c2540a">SYNTHETIC</text>
+  </g>
+</svg>

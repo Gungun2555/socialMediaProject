@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+/* Truepost — cool light theme built on the brand blues. */
+@theme {
+  --color-canvas: #f7f9fc;      /* page background       */
+  --color-card: #ffffff;        /* card / panel surface  */
+  --color-sand: #eef3fa;        /* subtle fill           */
+  --color-line: #dde5f0;        /* borders, dividers     */
+  --color-line-strong: #bfcde1; /* hover / emphasis line */
+
+  --color-ink: #101828;         /* primary text          */
+  --color-ink-soft: #3b4658;    /* body copy             */
+  --color-muted: #6c7891;       /* secondary text        */
+
+  /* brand palette */
+  --color-sky-tint: #e3f2fd;    /* lightest wash         */
+  --color-sky-light: #90caf9;   /* borders, soft fills   */
+  --color-sky: #2196f3;         /* primary blue          */
+  --color-navy: #0d47a1;        /* text and depth        */
+  --color-verify: #16a34a;      /* the badge green       */
+
+  --color-amber-warn: #b45309;  /* status / caution      */
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* chevron for the native <select> controls (kept out of a Tailwind
+   arbitrary value because the data URI contains spaces) */
+.select-arrow {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%236c7891' stroke-width='1.6' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
