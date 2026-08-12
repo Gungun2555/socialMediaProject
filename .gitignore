@@ -1,19 +1,20 @@
 # dependencies
-node_modules/
+**/node_modules/
 
 # build output
-dist/
+frontend/dist/
 
 # environment variables — never commit secrets
-.env
-.env.local
-.env.*.local
+**/.env
+**/.env.local
+**/.env.*.local
 
 # LLM verification cache
-.cache/
+backend/.cache/
 
 # macOS
 .DS_Store
+**/.DS_Store
 
 # editor
 .vscode/
