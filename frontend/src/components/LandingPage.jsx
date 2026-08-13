@@ -43,8 +43,16 @@ function TopNav({ onGetStarted }) {
 
 function Hero({ onGetStarted }) {
   return (
-    <section className="flex min-h-[calc(100vh-57px)] items-center border-b border-sky-light/50 bg-[radial-gradient(1000px_520px_at_15%_-15%,rgba(33,150,243,0.18),transparent_60%),radial-gradient(760px_480px_at_100%_0%,rgba(13,71,161,0.10),transparent_60%)]">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 overflow-hidden px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
+    <section className="relative flex min-h-[calc(100vh-57px)] items-center overflow-hidden border-b border-sky-light/50 bg-[radial-gradient(1000px_520px_at_15%_-15%,rgba(33,150,243,0.18),transparent_60%),radial-gradient(760px_480px_at_100%_0%,rgba(13,71,161,0.10),transparent_60%)]">
+      {/* soft brand blobs: they give the hero art something to sit on, so the
+          cropped edges of social.png dissolve into colour instead of white */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <span className="absolute -top-40 right-[-12%] size-[44rem] animate-blob rounded-full bg-sky/25 blur-[120px]" />
+        <span className="absolute bottom-[-24%] right-[4%] size-[34rem] animate-blob-slow rounded-full bg-navy/15 blur-[130px]" />
+        <span className="absolute bottom-[-28%] left-[-10%] size-[30rem] animate-blob-slow rounded-full bg-sky-light/30 blur-[120px]" />
+      </div>
+
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 overflow-hidden px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
         {/* left: text */}
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-light bg-sky-tint px-3 py-1 text-xs font-semibold text-navy">
@@ -80,11 +88,17 @@ function Hero({ onGetStarted }) {
         </div>
 
         {/* right: hero image */}
-        <div className="flex items-center justify-center lg:justify-end lg:overflow-visible">
+        <div className="relative flex items-center justify-center lg:justify-end lg:overflow-visible">
+          {/* halo directly behind the art, and a fade on the image itself so the
+              hard bottom crop of the PNG never shows as a straight edge */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-[2%] inset-y-[6%] rounded-[50%] bg-white/70 blur-3xl"
+          />
           <img
-            src="/landing page.png"
+            src="/social.png"
             alt="Truepost verification dashboard"
-            className="w-full drop-shadow-2xl lg:w-[130%] lg:max-w-none"
+            className="relative w-full drop-shadow-2xl [mask-image:linear-gradient(to_bottom,#000_78%,transparent_98%)] lg:w-[90%] lg:max-w-none"
             draggable={false}
           />
         </div>
