@@ -30,17 +30,6 @@ function TopNav({ onGetStarted }) {
             True<span className="text-sky">post</span>
           </span>
         </div>
-        <nav className="hidden items-center gap-7 text-sm font-medium text-muted md:flex">
-          <a href="#features" className="transition hover:text-ink">
-            Features
-          </a>
-          <a href="#pipeline" className="transition hover:text-ink">
-            Pipeline
-          </a>
-          <a href="#workspace" className="transition hover:text-ink">
-            Workspace
-          </a>
-        </nav>
         <button
           onClick={onGetStarted}
           className="cursor-pointer rounded-lg bg-gradient-to-br from-sky to-navy px-4 py-2 text-sm font-semibold text-white shadow-sm shadow-sky/25 transition hover:brightness-105"
@@ -54,40 +43,51 @@ function TopNav({ onGetStarted }) {
 
 function Hero({ onGetStarted }) {
   return (
-    <section className="border-b border-sky-light/50 bg-[radial-gradient(1000px_520px_at_15%_-15%,rgba(33,150,243,0.18),transparent_60%),radial-gradient(760px_480px_at_100%_0%,rgba(13,71,161,0.10),transparent_60%)]">
-      <div className="mx-auto max-w-6xl px-5 py-20 sm:py-28">
-        <span className="inline-flex items-center gap-2 rounded-full border border-sky-light bg-sky-tint px-3 py-1 text-xs font-semibold text-navy">
-          <span className="size-1.5 rounded-full bg-sky" />
-          15-stage verification pipeline
-        </span>
+    <section className="flex min-h-[calc(100vh-57px)] items-center border-b border-sky-light/50 bg-[radial-gradient(1000px_520px_at_15%_-15%,rgba(33,150,243,0.18),transparent_60%),radial-gradient(760px_480px_at_100%_0%,rgba(13,71,161,0.10),transparent_60%)]">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 overflow-hidden px-5 py-16 lg:grid-cols-[1fr_1.4fr]">
+        {/* left: text */}
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full border border-sky-light bg-sky-tint px-3 py-1 text-xs font-semibold text-navy">
+            <span className="size-1.5 rounded-full bg-sky" />
+            15-stage verification pipeline
+          </span>
 
-        <h1 className="mt-5 max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl">
-          Check what a post actually claims —{' '}
-          <span className="text-sky">before it spreads.</span>
-        </h1>
+          <h1 className="mt-6 text-5xl font-bold leading-[1.08] tracking-tight sm:text-6xl">
+            Check what a post actually claims —{' '}
+            <span className="text-sky">before it spreads.</span>
+          </h1>
 
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ink-soft">
-          Truepost ingests posts from X, Facebook and Instagram, pulls the claims out of text,
-          images and video, gathers evidence from ranked public sources, and puts an AI verdict in
-          front of a human reviewer.
-        </p>
+          <p className="mt-6 max-w-xl text-xl leading-relaxed text-ink-soft">
+            Truepost ingests posts from X, Facebook and Instagram, pulls the claims out of text,
+            images and video, gathers evidence from ranked public sources, and puts an AI verdict in
+            front of a human reviewer.
+          </p>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <button
-            onClick={onGetStarted}
-            className="cursor-pointer rounded-lg bg-gradient-to-br from-sky to-navy px-6 py-3 text-sm font-semibold text-white shadow-sm shadow-sky/30 transition hover:brightness-105"
-          >
-            Open the workspace
-          </button>
-          <a
-            href="#pipeline"
-            className="cursor-pointer rounded-lg border border-sky-light/50 bg-card px-6 py-3 text-sm font-semibold text-ink-soft transition hover:border-sky hover:text-ink"
-          >
-            See how it works
-          </a>
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <button
+              onClick={onGetStarted}
+              className="cursor-pointer rounded-xl bg-gradient-to-br from-sky to-navy px-8 py-4 text-base font-semibold text-white shadow-md shadow-sky/30 transition hover:brightness-105 active:scale-[.98]"
+            >
+              Open the workspace
+            </button>
+            <a
+              href="#features"
+              className="cursor-pointer rounded-xl border border-sky-light/50 bg-card px-8 py-4 text-base font-semibold text-ink-soft transition hover:border-sky hover:text-ink"
+            >
+              See how it works
+            </a>
+          </div>
         </div>
 
-
+        {/* right: hero image */}
+        <div className="flex items-center justify-center lg:justify-end lg:overflow-visible">
+          <img
+            src="/landing page.png"
+            alt="Truepost verification dashboard"
+            className="w-full drop-shadow-2xl lg:w-[130%] lg:max-w-none"
+            draggable={false}
+          />
+        </div>
       </div>
     </section>
   )
