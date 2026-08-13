@@ -20,6 +20,33 @@
   --color-verify: #16a34a;      /* the badge green       */
 
   --color-amber-warn: #b45309;  /* status / caution      */
+
+  /* hero background blobs                                */
+  --animate-blob: blob 22s ease-in-out infinite;
+  --animate-blob-slow: blob 34s ease-in-out infinite reverse;
+}
+
+/* lazy drift for the blurred hero blobs — large, slow and low contrast,
+   so it reads as ambient colour rather than movement */
+@keyframes blob {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(3%, -4%, 0) scale(1.08);
+  }
+  66% {
+    transform: translate3d(-4%, 3%, 0) scale(0.95);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+  }
 }
 
 html,
