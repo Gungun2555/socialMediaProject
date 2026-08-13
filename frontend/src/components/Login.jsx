@@ -78,7 +78,7 @@ export default function Login({ onSignIn, onBack }) {
                 id="username"
                 value={username}
                 onChange={setUsername}
-                placeholder="analyst"
+                placeholder="Type username"
                 autoComplete="username"
                 icon={
                   <svg viewBox="0 0 20 20" fill="currentColor" className="size-4">
@@ -148,10 +148,6 @@ export default function Login({ onSignIn, onBack }) {
                 Sign in
               </button>
             </form>
-
-            <p className="mt-6 text-center text-[11px] text-muted/60">
-              This is a demo — credentials are provided separately.
-            </p>
           </div>
         </div>
       </div>
