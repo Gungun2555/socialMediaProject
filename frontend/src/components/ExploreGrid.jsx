@@ -95,8 +95,13 @@ function PostCard({ post, onClick }) {
             />
           )
         ) : (
-          <div className="grid size-full place-items-center bg-gradient-to-br from-sky/20 to-navy/30 text-3xl font-bold text-navy/40">
-            {(post.username ?? '?').slice(0, 2).toUpperCase()}
+          <div className="flex size-full flex-col items-center justify-center gap-1.5 bg-gradient-to-br from-sky/10 to-navy/15 text-muted">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" className="size-7 opacity-50">
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <circle cx="9" cy="10.5" r="1.75" />
+              <path d="m21 16-5.2-5.2a1.5 1.5 0 0 0-2.1 0L5 19" />
+            </svg>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.08em] opacity-70">No media posted</span>
           </div>
         )}
 
