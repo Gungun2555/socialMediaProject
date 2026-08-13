@@ -40,7 +40,6 @@ export default function RecordView({ record, onBack }) {
           </span>
           <div className="min-w-0">
             <h2 className="text-xl font-bold tracking-tight">@{record.username ?? 'unknown'}</h2>
-            <p className="mt-0.5 font-mono text-[12.5px] text-muted">{record.id}</p>
             <p className="mt-1.5 max-w-md truncate text-[13px] text-muted/80">
               {captionSnippet(record.caption, 90)}
             </p>
@@ -102,20 +101,15 @@ export default function RecordView({ record, onBack }) {
                   <span className="italic text-muted/60">No links attached.</span>
                 )}
               </Meta>
-              <Meta label="Source file">
-                <code className="text-navy">{record._source}</code>
-              </Meta>
             </MetaGrid>
           </Card>
 
-          {/* media from images/<record id>/ */}
+          {/* media attached to this post */}
           <Card title="Media">
             {media.length > 0 ? (
-              <MediaCarousel key={record.id} items={media} recordId={record.id} />
+              <MediaCarousel key={record.id} items={media} />
             ) : (
-              <p className="text-sm italic text-muted/60">
-                No media found in <code>images/{record.id}/</code>.
-              </p>
+              <p className="text-sm italic text-muted/60">No media attached to this post.</p>
             )}
           </Card>
         </div>
@@ -133,7 +127,7 @@ function mediaLabel(media) {
     .join(' · ')
 }
 
-function MediaCarousel({ items, recordId }) {
+function MediaCarousel({ items }) {
   const [index, setIndex] = useState(0)
   const current = items[index]
 
@@ -151,9 +145,6 @@ function MediaCarousel({ items, recordId }) {
     <div>
       <div className="mb-3 flex flex-wrap items-center gap-3">
         <Pill tone="accent">{`${index + 1} / ${items.length}`}</Pill>
-        <code className="text-xs text-muted">
-          images/{recordId}/{current.file}
-        </code>
         {items.length > 1 && (
           <div className="ml-auto flex gap-2">
             <NavButton disabled={index === 0} onClick={() => setIndex(index - 1)}>
@@ -180,7 +171,7 @@ function MediaCarousel({ items, recordId }) {
             className="max-h-[560px] w-full rounded-lg bg-black"
           />
         ) : (
-          <Frame src={current.url} alt={`${recordId} — ${current.file}`} />
+          <Frame src={current.url} alt="Post media" />
         )}
       </div>
 
@@ -191,7 +182,7 @@ function MediaCarousel({ items, recordId }) {
               key={item.url}
               type="button"
               onClick={() => setIndex(i)}
-              aria-label={`Show ${item.file}`}
+              aria-label={`Show item ${i + 1}`}
               aria-current={i === index}
               className={`relative size-16 cursor-pointer overflow-hidden rounded-lg border-2 transition ${
                 i === index ? 'border-sky' : 'border-line hover:border-line-strong'

@@ -53,7 +53,7 @@ export default function Login({ onSignIn, onBack }) {
         <div className="rounded-3xl border border-line bg-card shadow-2xl shadow-sky/10">
           {/* header band */}
           <div className="flex flex-col items-center gap-4 rounded-t-3xl bg-gradient-to-br from-sky to-navy px-8 py-10 text-white">
-            <div className="flex size-16 items-center justify-center rounded-2xl bg-white/15 shadow-lg ring-1 ring-white/20 backdrop-blur-sm">
+            <div className="flex size-16 items-center justify-center rounded-2xl bg-white shadow-lg ring-1 ring-white/20">
               <Logo className="size-10" />
             </div>
             <div className="text-center">

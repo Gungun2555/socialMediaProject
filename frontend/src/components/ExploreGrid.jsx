@@ -30,6 +30,39 @@ export default function ExploreGrid({ posts, onSelect }) {
   )
 }
 
+/** Skeleton placeholders shown on the post containers while the queue page loads. */
+export function ExploreGridSkeleton({ count = 6 }) {
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {Array.from({ length: count }).map((_, i) => (
+        <PostCardSkeleton key={i} />
+      ))}
+    </div>
+  )
+}
+
+function PostCardSkeleton() {
+  return (
+    <div className="flex flex-col overflow-hidden rounded-2xl border border-line bg-card shadow-sm">
+      <div className="aspect-[16/9] w-full animate-pulse bg-sand" />
+      <div className="flex flex-1 flex-col gap-3 p-4">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2">
+            <div className="size-7 flex-none animate-pulse rounded-full bg-sand" />
+            <div className="h-3 w-24 animate-pulse rounded bg-sand" />
+          </div>
+          <div className="h-4 w-14 animate-pulse rounded-full bg-sand" />
+        </div>
+        <div className="space-y-1.5">
+          <div className="h-3 w-full animate-pulse rounded bg-sand" />
+          <div className="h-3 w-4/5 animate-pulse rounded bg-sand" />
+        </div>
+        <div className="mt-auto h-7 w-full animate-pulse rounded-lg bg-sand" />
+      </div>
+    </div>
+  )
+}
+
 function PostCard({ post, onClick }) {
   const media = mediaFor(post.id)
   const cover = media[0]
@@ -56,7 +89,7 @@ function PostCard({ post, onClick }) {
           ) : (
             <img
               src={cover.url}
-              alt={post.caption?.slice(0, 60) ?? post.id}
+              alt={post.caption?.slice(0, 60) ?? `Post by @${post.username ?? 'unknown'}`}
               loading="lazy"
               className="size-full object-cover transition duration-300 group-hover:scale-105"
             />

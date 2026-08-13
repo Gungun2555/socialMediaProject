@@ -80,11 +80,11 @@ function Hero({ onGetStarted }) {
         </div>
 
         {/* right: hero image */}
-        <div className="flex items-center justify-center lg:justify-end lg:overflow-visible">
+        <div className="flex items-center justify-center lg:justify-end">
           <img
             src="/landing page.png"
             alt="Truepost verification dashboard"
-            className="w-full drop-shadow-2xl lg:w-[130%] lg:max-w-none"
+            className="w-full max-w-md drop-shadow-2xl lg:max-w-lg"
             draggable={false}
           />
         </div>

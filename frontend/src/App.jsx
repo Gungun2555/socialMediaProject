@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import LandingPage from './components/LandingPage.jsx'
 import Login from './components/Login.jsx'
 import RecordView from './components/RecordView.jsx'
-import ExploreGrid from './components/ExploreGrid.jsx'
+import ExploreGrid, { ExploreGridSkeleton } from './components/ExploreGrid.jsx'
 import { EmptyState } from './components/ui.jsx'
 import { PENDING_VERIFICATION, STATUS, errorVerification } from './lib/verification.js'
 import { fetchVerification } from './lib/api.js'
@@ -36,6 +36,16 @@ export default function App() {
   const [verifyError, setVerifyError] = useState(null)
   const [generatedAt, setGeneratedAt] = useState(null)
   const [linkCheck, setLinkCheck] = useState(null)
+
+  // Show a loader on the post containers for the first 2s every time the queue page
+  // loads after login, regardless of how quickly the fact-check data itself comes back.
+  const [showQueueLoader, setShowQueueLoader] = useState(true)
+  useEffect(() => {
+    if (!user) return
+    setShowQueueLoader(true)
+    const timer = setTimeout(() => setShowQueueLoader(false), 2000)
+    return () => clearTimeout(timer)
+  }, [user])
 
   async function loadVerification({ refresh = false } = {}) {
     setVerifyState('loading')
@@ -235,7 +245,9 @@ export default function App() {
               </label>
             </div>
 
-            {visiblePosts.length ? (
+            {showQueueLoader ? (
+              <ExploreGridSkeleton count={visiblePosts.length || 6} />
+            ) : visiblePosts.length ? (
               <ExploreGrid posts={visiblePosts} onSelect={setPostId} />
             ) : (
               <EmptyState>No posts match this filter.</EmptyState>
